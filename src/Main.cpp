@@ -9,6 +9,8 @@
 #include <KAboutData>
 #include <KLocalizedString>
 
+#include "MainWindow.h"
+
 
 int main (int argc, char *argv[])
 {
@@ -35,10 +37,8 @@ int main (int argc, char *argv[])
     parser.process(app);
     aboutData.processCommandLine(&parser);
     
-    KGuiItem yesButton("Hello", QString(),
-                      "This is a tooltip",
-                      "This is a WhatsThis help text.");
-    
-    return KMessageBox::questionYesNo(0, "Hello World", "Hello", yesButton)
-        == KMessageBox::Yes ? EXIT_SUCCESS : EXIT_FAILURE;
+    MainWindow *window = new MainWindow();
+    window->show();
+
+    return app.exec();
 }

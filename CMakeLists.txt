@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.21)
 
 project(etcetera_calibrator)
 
@@ -22,16 +22,25 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     I18n
     WidgetsAddons
+    XmlGui
+    UnitConversion
 )
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
-add_executable(etcetera_calibrator src/Main.cpp)
+add_executable(etcetera_calibrator
+    src/Main.cpp
+    src/MainWindow.cpp
+    src/GoldBox/Calibration.cpp
+    src/GoldBox/Channel.cpp
+    src/GoldBox/Table.cpp)
 target_link_libraries(etcetera_calibrator
     Qt5::Widgets
     KF5::CoreAddons
     KF5::I18n
     KF5::WidgetsAddons
+    KF5::XmlGui
+    KF5::UnitConversion
 )
 
 install(TARGETS etcetera_calibrator ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

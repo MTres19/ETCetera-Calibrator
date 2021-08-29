@@ -3,9 +3,10 @@
  *  SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#include "MainWindow.h"
+#include "Table.h"
+using namespace GoldBox;
 
-MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent)
+Table::Table()
 {
-    setupGUI();
+
 }

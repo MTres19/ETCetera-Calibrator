@@ -15,6 +15,6 @@ public:
 
 private:
     
-}
+};
 
 #endif // MAINWINDOW_H
